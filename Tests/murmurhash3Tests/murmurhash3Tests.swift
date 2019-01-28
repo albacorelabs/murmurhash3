@@ -1,13 +1,13 @@
 import XCTest
 @testable import murmurhash3
 
-final class murmurhash3Tests: XCTestCase {
+final class MurmurHash3Tests: XCTestCase {
 
     private func performTest(_ input: String, _ seed: UInt32, _ expected: UInt32) {
         XCTAssertEqual(MurmurHash3.hashString(input, seed), expected)
     }
 
-    // some test vectors from https://stackoverflow.com/questions/14747343/murmurhash3-test-vectors
+    // test vectors from https://stackoverflow.com/questions/14747343/murmurhash3-test-vectors
     func testMurmurHash3() {
         performTest("", 0, 0)
         performTest("", 1, 0x514E28B7)
@@ -37,6 +37,6 @@ final class murmurhash3Tests: XCTestCase {
     }
 
     static var allTests = [
-        ("testMurmurHash3", testMurmurHash3),
+        ("testMurmurHash3", testMurmurHash3)
     ]
 }

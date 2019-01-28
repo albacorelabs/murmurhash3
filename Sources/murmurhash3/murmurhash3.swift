@@ -1,9 +1,5 @@
-/* Copyright (c) 2012-2017 The ANTLR Project. All rights reserved.
- * Use of this file is governed by the BSD 3-clause license that
- * can be found in the LICENSE.txt file in the project root.
- */
-
 // https://en.wikipedia.org/wiki/MurmurHash#MurmurHash3
+// Based on https://github.com/antlr/antlr4/blob/master/runtime/Swift/Sources/Antlr4/misc/MurmurHash.swift
 // Originally written by Sam Harwell
 
 public final class MurmurHash3 {
@@ -47,7 +43,6 @@ public final class MurmurHash3 {
         return updateInternal(hashIn, UInt32(truncatingIfNeeded: value))
     }
 
-
     private static func updateInternal(_ hashIn: UInt32, _ value: UInt32) -> UInt32 {
         let k = calcK(value)
         var hash = hashIn
@@ -64,7 +59,7 @@ public final class MurmurHash3 {
     /// - Parameter value: the value to add to the current hash
     /// - Returns: the updated intermediate hash value
     ///
-    public static func update<T:Hashable>(_ hash: UInt32, _ value: T?) -> UInt32 {
+    public static func update<T: Hashable>(_ hash: UInt32, _ value: T?) -> UInt32 {
         return update2(hash, value != nil ? value!.hashValue : 0)
     }
 
